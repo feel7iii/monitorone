@@ -24,59 +24,65 @@
             <column name="parent_id" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="path" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="name" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="unique_name" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="description" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="position" type="integer">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="type" type="integer">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="status" type="integer">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="security_level" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="create_time" type="timestamp">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="modify_time" type="timestamp">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="manage_by" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="party_one" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="party" columnName="create_time" columnDataType="datetime"/>
         <dropDefaultValue tableName="party" columnName="modify_time" columnDataType="datetime"/>
-        
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/party.csv"
+                  separator=";"
+                  tableName="party">
+            <column name="create_time" type="timestamp"/>
+            <column name="modify_time" type="timestamp"/>
+        </loadData>
     </changeSet>
 </databaseChangeLog>
