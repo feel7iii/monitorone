@@ -103,6 +103,7 @@
                                 createTime: null,
                                 modifyTime: null,
                                 manageBy: null,
+                                partyOne: null,
                                 id: null
                             };
                         }

@@ -63,6 +63,9 @@ public class Party implements Serializable {
     @Column(name = "manage_by")
     private String manageBy;
 
+    @Column(name = "party_one")
+    private String partyOne;
+
     public Long getId() {
         return id;
     }
@@ -167,6 +170,14 @@ public class Party implements Serializable {
         this.manageBy = manageBy;
     }
 
+    public String getPartyOne() {
+        return partyOne;
+    }
+
+    public void setPartyOne(String partyOne) {
+        this.partyOne = partyOne;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -203,6 +214,7 @@ public class Party implements Serializable {
             ", createTime='" + createTime + "'" +
             ", modifyTime='" + modifyTime + "'" +
             ", manageBy='" + manageBy + "'" +
+            ", partyOne='" + partyOne + "'" +
             '}';
     }
 }

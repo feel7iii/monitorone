@@ -63,6 +63,10 @@
         {
             "fieldName": "manageBy",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "partyOne",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20160810045000",

@@ -27,7 +27,8 @@
             "securityLevel": "Security Level",
             "createTime": "Create Time",
             "modifyTime": "Modify Time",
-            "manageBy": "Manage By"
+            "manageBy": "Manage By",
+            "partyOne": "Party One"
         }
     }
 }
