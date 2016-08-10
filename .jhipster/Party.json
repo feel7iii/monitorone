@@ -1,0 +1,73 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "parentId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "path",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "uniqueName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "position",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "securityLevel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "modifyTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "manageBy",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160810045000",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "party",
+    "pagination": "pagination"
+}

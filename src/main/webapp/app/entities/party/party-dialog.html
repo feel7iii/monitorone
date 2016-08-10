@@ -1,0 +1,140 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPartyLabel" translate="monitorApp.party.home.createOrEditLabel">Create or edit a Party</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.party.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.party.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.party.parentId" for="field_parentId">Parent Id</label>
+            <input type="text" class="form-control" name="parentId" id="field_parentId"
+                    ng-model="vm.party.parentId"
+                    required />
+            <div ng-show="editForm.parentId.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.parentId.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.party.path" for="field_path">Path</label>
+            <input type="text" class="form-control" name="path" id="field_path"
+                    ng-model="vm.party.path"
+                    required />
+            <div ng-show="editForm.path.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.path.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.party.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.party.name"
+                    required />
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.party.uniqueName" for="field_uniqueName">Unique Name</label>
+            <input type="text" class="form-control" name="uniqueName" id="field_uniqueName"
+                    ng-model="vm.party.uniqueName"
+                    required />
+            <div ng-show="editForm.uniqueName.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.uniqueName.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.party.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.party.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.party.position" for="field_position">Position</label>
+            <input type="number" class="form-control" name="position" id="field_position"
+                    ng-model="vm.party.position"
+                    required />
+            <div ng-show="editForm.position.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.position.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.position.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.party.type" for="field_type">Type</label>
+            <input type="number" class="form-control" name="type" id="field_type"
+                    ng-model="vm.party.type"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.party.status" for="field_status">Status</label>
+            <input type="number" class="form-control" name="status" id="field_status"
+                    ng-model="vm.party.status"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.party.securityLevel" for="field_securityLevel">Security Level</label>
+            <input type="text" class="form-control" name="securityLevel" id="field_securityLevel"
+                    ng-model="vm.party.securityLevel"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.party.createTime" for="field_createTime">Create Time</label>
+                <div class="input-group">
+                    <input id="field_createTime" type="text" class="form-control" name="createTime" datetime-picker="{{dateformat}}" ng-model="vm.party.createTime" is-open="vm.datePickerOpenStatus.createTime"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createTime')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.party.modifyTime" for="field_modifyTime">Modify Time</label>
+                <div class="input-group">
+                    <input id="field_modifyTime" type="text" class="form-control" name="modifyTime" datetime-picker="{{dateformat}}" ng-model="vm.party.modifyTime" is-open="vm.datePickerOpenStatus.modifyTime"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('modifyTime')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.party.manageBy" for="field_manageBy">Manage By</label>
+            <input type="text" class="form-control" name="manageBy" id="field_manageBy"
+                    ng-model="vm.party.manageBy"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

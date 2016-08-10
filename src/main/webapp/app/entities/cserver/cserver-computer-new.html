@@ -1,0 +1,87 @@
+<div class="uibModal">
+    <form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                    ng-click="vm.clear()">&times;</button>
+            <h4 class="modal-title" id="myCserverLabel" translate="monitorApp.cserver.home.createOrEditLabel">Create or
+                edit a Cserver</h4>
+        </div>
+        <div class="modal-body">
+            <jhi-alert-error></jhi-alert-error>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.cserver.csname" for="field_csname">Csname</label>
+                <input type="text" class="form-control" name="csname" id="field_csname"
+                       ng-model="vm.cserver.csname"
+                       required/>
+                <div ng-show="editForm.csname.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.csname.$error.required" translate="entity.validation.required">
+                        This field is required.
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.cserver.csdescription" for="field_csdescription">Csdescription</label>
+                <input type="text" class="form-control" name="csdescription" id="field_csdescription"
+                       ng-model="vm.cserver.csdescription"
+                       required/>
+                <div ng-show="editForm.csdescription.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.csdescription.$error.required" translate="entity.validation.required">
+                        This field is required.
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.cserver.cstartstatus" for="field_cstartstatus">Cstartstatus</label>
+                <select class="form-control" name="cstartstatus" ng-model="vm.cserver.cstartstatus"
+                        id="field_cstartstatus">
+                    <option value="AUTOMATIC" translate="monitorApp.Cstatus.AUTOMATIC">AUTOMATIC</option>
+                    <option value="MANUAL" translate="monitorApp.Cstatus.MANUAL">MANUAL</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.cserver.cport" for="field_cport">Cport</label>
+                <input type="number" class="form-control" name="cport" id="field_cport"
+                       ng-model="vm.cserver.cport"
+                       required/>
+                <div ng-show="editForm.cport.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.cport.$error.required" translate="entity.validation.required">
+                        This field is required.
+                    </p>
+                    <p class="help-block"
+                       ng-show="editForm.cport.$error.number" translate="entity.validation.number">
+                        This field should be a number.
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.cserver.cstatusliveordie"
+                       for="field_cstatusliveordie">Cstatusliveordie</label>
+                <input type="text" class="form-control" name="cstatusliveordie" id="field_cstatusliveordie"
+                       ng-model="vm.cserver.cstatusliveordie"
+                />
+            </div>
+            <div class="form-group">
+                <label translate="monitorApp.cserver.computer" for="field_computer">....</label>
+                <input type="hidden" class="form-control" name="computer" id="field_computer"
+                       ng-model="vm.cserver.computer" ng-disabled="true"
+                />
+                <input type="text" class="form-control" name="computer_" id="field_computer_"
+                       ng-model="vm.cserver.computer.cpname" ng-disabled="true"
+                />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+                <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
+                translate="entity.action.cancel">Cancel</span>
+            </button>
+            <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-info">
+                <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+            </button>
+        </div>
+    </form>
+</div>

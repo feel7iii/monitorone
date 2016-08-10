@@ -1,0 +1,99 @@
+<div>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-info" ui-sref="computer.new">
+                    <span translate="monitorApp.computer.home.createLabel">
+                        ....
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="col-xs-3 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right">
+                        <input type="text" class="form-control gold" ng-model="vm.searchQuery" id="searchQuery"
+                               placeholder="{{ 'monitorApp.computer.home.search' | translate }}">
+                        <span class="input-group-btn width-min">
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-3" ng-repeat="computer in vm.computers track by computer.id">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="clearfix">
+                        <a class="pull-left thumb-md avatar b-3x m-r" ui-sref="computer-detail({id:computer.id})">
+                            <img src="../../../content/images/4.jpg" alt="...">
+                        </a>
+                        <div class="clear">
+                            <div class="h5 m-t-xs m-b-xs">
+                                {{computer.cpname | limitTo : 6}}....
+                            </div>
+                            <!-- <small class="text-muted">{{computer.cposx}}</small> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group no-radius alt">
+                    <a class="list-group-item">
+                        <span class="badge bg-light" ui-sref="middleware.mnew({cid:computer.id})"><i
+                            class="fa glyphicon-plus" title="添加中间件"></i></span>
+                        <span class="badge bg-light" ui-sref="middleware({words:computer.id})">{{computer.midlength}}</span>
+                        <i class="glyphicon glyphicon-grain"></i>
+                        <span class="gold" ui-sref="middleware({words:computer.id})">中间件</span>
+                    </a>
+                    <a class="list-group-item">
+                        <span class="badge bg-light" ui-sref="application.cnew({cid:computer.id})"><i
+                            class="fa glyphicon-plus" title="添加应用"></i></span>
+                        <span class="badge bg-light" ui-sref="application({words:computer.id})">{{computer.applength}}</span>
+                        <i class="glyphicon glyphicon-send"></i>
+                        <span class="gold" ui-sref="application({words:computer.id})">应用程序</span>
+                    </a>
+                    <a class="list-group-item">
+                        <span class="badge bg-light" ui-sref="cserver.snew({cid:computer.id})"><i
+                            class="fa glyphicon-plus" title="添加数据库服务"></i></span>
+                        <span class="badge bg-light" ui-sref="cserver({words:computer.id})">{{computer.csvlength}}</span>
+                        <i class="glyphicon glyphicon-leaf"></i>
+                        <span class="gold" ui-sref="cserver({words:computer.id})">数据库</span>
+                    </a>
+                    <a class="list-group-item text-center" href>
+                        <button type="submit" ui-sref="computer-detail({id:computer.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="computer.edit({id:computer.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="computer.delete({id:computer.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>
+                            <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

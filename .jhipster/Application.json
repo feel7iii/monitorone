@@ -1,0 +1,86 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "mmetadate",
+      "otherEntityName": "mmetadate",
+      "relationshipType": "many-to-many",
+      "otherEntityField": "mcname",
+      "ownerSide": true
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "computer",
+      "otherEntityName": "computer",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "cpname"
+    },
+    {
+      "relationshipId": 3,
+      "relationshipName": "middleware",
+      "otherEntityName": "middleware",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "midname"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "appname",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "appdescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "appaccess",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "appusingport",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "appvolumepath",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 6,
+      "fieldName": "appconnpath",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 7,
+      "fieldName": "appsysadmin",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 8,
+      "fieldName": "appsyspass",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 9,
+      "fieldName": "appstatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 10,
+      "fieldName": "appconnway",
+      "fieldType": "Connway",
+      "fieldValues": "MMETADATE,SELFMETADATE"
+    }
+  ],
+  "changelogDate": "20160516073727",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no"
+}

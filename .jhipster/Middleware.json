@@ -1,0 +1,66 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "mmetadate",
+      "otherEntityName": "mmetadate",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "middleware"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "application",
+      "otherEntityName": "application",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "middleware"
+    },
+    {
+      "relationshipId": 3,
+      "relationshipName": "computer",
+      "otherEntityName": "computer",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "cpname"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "midname",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "midport",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "midpath",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "midmoreinfo",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "midtype",
+      "fieldType": "Midtype",
+      "fieldValues": "TOMCAT,WEBLOGIC,WEBSPHERE,TONGSERVER,APUSIC"
+    }
+  ],
+  "changelogDate": "20160516073726",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no"
+}

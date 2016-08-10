@@ -1,0 +1,88 @@
+<div>
+    <jhi-alert></jhi-alert>
+    <div class="wrapper-md">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="hidden-xs"  translate="monitorApp.cserver.home.title">
+                    ....
+                </span>
+            </div>
+            <div class="row wrapper">
+                <div class="col-sm-3">
+                    <div class="btn-group" uib-dropdown>
+                        <button id="simple-btn-keyboard-nav" type="button" class="btn btn-info" uib-dropdown-toggle>
+                            按所在服务器查询<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" uib-dropdown-menu>
+                            <li ng-repeat="computer in vm.computers track by computer.id"><a ui-sref="cserver({words:computer.id})">{{computer.cpname}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-3">
+                    <form name="searchForm" class="form-inline">
+                        <div class="input-group pull-right" >
+                            <input type="text" class="form-control gold" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'monitorApp.cserver.home.search' | translate }}">
+                            <span  class="input-group-btn width-min" >
+                                <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                            <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                                <button class="btn btn-info" ng-click="vm.clear()">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped b-t b-light">
+                    <thead>
+                    <tr>
+                        <th><span translate="monitorApp.cserver.csname">Csname</span></th>
+                        <th><span translate="monitorApp.cserver.csdescription">Csdescription</span></th>
+                        <th><span translate="monitorApp.cserver.cstartstatus">Cstartstatus</span></th>
+                        <th><span translate="monitorApp.cserver.cport">Cport</span></th>
+                        <th><span translate="monitorApp.cserver.cstatusliveordie">Cstatusliveordie</span></th>
+                        <th><span translate="monitorApp.cserver.computer">Computer</span></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="cserver in vm.cservers track by cserver.id">
+                        <td>{{cserver.csname}}</td>
+                        <td>{{cserver.csdescription}}</td>
+                        <td translate="{{'monitorApp.Cstatus.' + cserver.cstartstatus}}">{{cserver.cstartstatus}}</td>
+                        <td>{{cserver.cport}}</td>
+                        <td>{{cserver.cstatusliveordie}}</td>
+                        <td>
+                            <a ui-sref="computer-detail({id:cserver.computer.id})">{{cserver.computer.cpname}}</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-info" ui-sref="cserver-detail({id:cserver.id})" title="详情">
+                                <i class="fa fa-eye-slash"></i>
+                                <span class="sr-only">查看</span>
+                            </a>
+                            <a class="btn btn-success" ui-sref="cserver.edit({id:cserver.id})" title="编辑">
+                                <i class="fa fa-pencil"></i>
+                                <span class="sr-only">编辑</span>
+                            </a>
+                            <a class="btn btn-danger" ui-sref="cserver.delete({id:cserver.id})" title="删除">
+                                <i class="fa fa-eraser"></i>
+                                <span class="sr-only">删除</span>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

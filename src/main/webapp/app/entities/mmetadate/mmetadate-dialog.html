@@ -1,0 +1,95 @@
+<div class="uibModal">
+    <form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                    ng-click="vm.clear()">&times;</button>
+            <h4 class="modal-title" id="myMmetadateLabel" translate="monitorApp.mmetadate.home.createOrEditLabel">Create
+                or edit a Mmetadate</h4>
+        </div>
+        <div class="modal-body">
+            <jhi-alert-error></jhi-alert-error>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.mmetadate.mcname" for="field_mcname">Mcname</label>
+                <input type="text" class="form-control" name="mcname" id="field_mcname"
+                       ng-model="vm.mmetadate.mcname"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.mmetadate.mcdescription" for="field_mcdescription">Mcdescription</label>
+                <input type="text" class="form-control" name="mcdescription" id="field_mcdescription"
+                       ng-model="vm.mmetadate.mcdescription"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.mmetadate.mcsidordatabasename"
+                       for="field_mcsidordatabasename">Mcsidordatabasename</label>
+                <input type="text" class="form-control" name="mcsidordatabasename" id="field_mcsidordatabasename"
+                       ng-model="vm.mmetadate.mcsidordatabasename"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.mmetadate.mcusername" for="field_mcusername">Mcusername</label>
+                <input type="text" class="form-control" name="mcusername" id="field_mcusername"
+                       ng-model="vm.mmetadate.mcusername"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.mmetadate.mcpassword" for="field_mcpassword">Mcpassword</label>
+                <input type="text" class="form-control" name="mcpassword" id="field_mcpassword"
+                       ng-model="vm.mmetadate.mcpassword"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.mmetadate.mcport" for="field_mcport">Mcport</label>
+                <input type="text" class="form-control" name="mcport" id="field_mcport"
+                       ng-model="vm.mmetadate.mcport"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.mmetadate.msconnurl"
+                       for="field_msconnurl">Msconnurl</label>
+                <input type="text" class="form-control" name="msconnurl" id="field_msconnurl"
+                       ng-model="vm.mmetadate.msconnurl"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.mmetadate.mcsqltype"
+                       for="field_mcsqltype">Mcsqltype</label>
+                <select class="form-control" name="mcsqltype" ng-model="vm.mmetadate.mcsqltype" id="field_mcsqltype">
+                    <option value="MYSQL" translate="monitorApp.Msqlctype.MYSQL">MYSQL</option>
+                    <option value="ORACLE" translate="monitorApp.Msqlctype.ORACLE">ORACLE</option>
+                    <option value="MSSERVER" translate="monitorApp.Msqlctype.MSSERVER">MSSERVER</option>
+                    <option value="DB2" translate="monitorApp.Msqlctype.DB2">DB2</option>
+                    <option value="POTSGRESQL" translate="monitorApp.Msqlctype.POTSGRESQL">POTSGRESQL</option>
+                    <option value="H2" translate="monitorApp.Msqlctype.H2">H2</option>
+                    <option value="MONGODB" translate="monitorApp.Msqlctype.MONGODB">MONGODB</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label translate="monitorApp.mmetadate.cserver" for="field_cserver">Cserver</label>
+                <select class="form-control" id="field_cserver" name="cserver" ng-model="vm.mmetadate.cserver"
+                        ng-options="cserver as cserver.csname for cserver in vm.cservers track by cserver.id">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label translate="monitorApp.mmetadate.middleware" for="field_middleware">Middleware</label>
+                <select class="form-control" id="field_middleware" name="middleware" ng-model="vm.mmetadate.middleware"
+                        ng-options="middleware as middleware.midname for middleware in vm.middlewares track by middleware.id">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+                <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
+                translate="entity.action.cancel">Cancel</span>
+            </button>
+            <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-info">
+                <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+            </button>
+        </div>
+    </form>
+</div>

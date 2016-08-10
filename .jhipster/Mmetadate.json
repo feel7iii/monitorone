@@ -1,0 +1,73 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "cserver",
+      "otherEntityName": "cserver",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "csname"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "application",
+      "otherEntityName": "application",
+      "relationshipType": "many-to-many",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "mmetadate"
+    },
+    {
+      "relationshipId": 3,
+      "relationshipName": "middleware",
+      "otherEntityName": "middleware",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "midname"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "mcname",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "mcdescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "mcsidordatabasename",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "mcusername",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "mcpassword",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 6,
+      "fieldName": "mcport",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 7,
+      "fieldName": "msconnurl",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 8,
+      "fieldName": "mcsqltype",
+      "fieldType": "Msqlctype",
+      "fieldValues": "MYSQL,ORACLE,MSSERVER,DB2,POTSGRESQL,H2,MONGODB"
+    }
+  ],
+  "changelogDate": "20160516073729",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no"
+}

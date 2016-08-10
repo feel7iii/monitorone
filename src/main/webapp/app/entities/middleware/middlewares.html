@@ -1,0 +1,124 @@
+<div>
+    <jhi-alert></jhi-alert>
+    <div class="wrapper-md">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                中间件
+            </div>
+            <div class="row wrapper">
+                <div class="col-sm-3">
+                    <div class="btn-group" uib-dropdown>
+                        <button id="simple-btn-keyboard-nav" type="button" class="btn btn-info" uib-dropdown-toggle>
+                            按所在服务器查询<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" uib-dropdown-menu>
+                            <li ng-repeat="computer in vm.computers track by computer.id"><a
+                                ui-sref="middleware({words:computer.id})">{{computer.cpname}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-3">
+                    <form name="searchForm" class="form-inline">
+                        <div class="input-group pull-right">
+                            <input type="text" class="form-control gold" ng-model="vm.searchQuery" id="searchQuery"
+                                   placeholder="{{ 'monitorApp.middleware.home.search' | translate }}">
+                            <span class="input-group-btn width-min">
+                                <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                            <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                                <button class="btn btn-info" ng-click="vm.clear()">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--
+            <div class="table-responsive">
+                <table class="table table-striped b-t b-light">
+                    <thead>
+                    <tr>
+                        <th><span translate="monitorApp.middleware.midname">Midname</span></th>
+                        <th><span translate="monitorApp.middleware.midport">Midport</span></th>
+                        <th><span translate="monitorApp.middleware.midpath">Midpath</span></th>
+                        <th><span translate="monitorApp.middleware.midmoreinfo">Midmoreinfo</span></th>
+                        <th><span translate="monitorApp.middleware.midtype">Midtype</span></th>
+                        <th><span translate="monitorApp.middleware.computer">Computer</span></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="middleware in vm.middlewares track by middleware.id">
+                        <td>{{middleware.midname}}</td>
+                        <td>{{middleware.midport}}</td>
+                        <td>{{middleware.midpath}}</td>
+                        <td>{{middleware.midmoreinfo}}</td>
+                        <td translate="{{'monitorApp.Midtype.' + middleware.midtype}}">{{middleware.midtype}}</td>
+                        <td>
+                            <a ui-sref="computer-detail({id:middleware.computer.id})">{{middleware.computer.cpname}}</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-info" ui-sref="middleware-detail({id:middleware.id})" title="详情">
+                                <i class="fa fa-eye-slash"></i>
+                                <span class="sr-only">查看</span>
+                            </a>
+                            <a class="btn btn-success" ui-sref="middleware.edit({id:middleware.id})" title="编辑">
+                                <i class="fa fa-pencil"></i>
+                                <span class="sr-only">编辑</span>
+                            </a>
+                            <a class="btn btn-danger" ui-sref="middleware.delete({id:middleware.id})" title="删除">
+                                <i class="fa fa-eraser"></i>
+                                <span class="sr-only">删除</span>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            -->
+            <div class="table-responsive">
+                <div class="col-md-4" ng-repeat="middleware in vm.middlewares track by middleware.id">
+                    <div class="row row-sm text-center">
+                        <div class="col-xs-12 m-b-md">
+                            <div class="r bg-light dker item hbox no-border">
+                                <div class="col dk padder-v r-r">
+                                    <div class="text-primary-dk font-thin h4"><a ui-sref="middleware-detail({id:middleware.id})">{{middleware.midname | limitTo : 10 }}....</a></div>
+                                    <a class="text-muted text-xs" ui-sref="application({words:middleware.id})">应用程序数量-><span class="badge bg-light">{{middleware.applength}}</span></a>
+                                </div>
+                                <div class="col w-xs v-middle hidden-md">
+                                    <div class="">
+                                        <a class="btn btn-info" ui-sref="middleware-detail({id:middleware.id})" title="详情">
+                                            <i class="fa fa-eye-slash"></i>
+                                            <span class="sr-only">查看</span>
+                                        </a>
+                                        <a class="btn btn-success" ui-sref="middleware.edit({id:middleware.id})" title="编辑">
+                                            <i class="fa fa-pencil"></i>
+                                            <span class="sr-only">编辑</span>
+                                        </a>
+                                        <!--
+                                        <a class="btn btn-info" ui-sref="middleware.delete({id:middleware.id})" title="删除">
+                                            <i class="fa fa-eraser"></i>
+                                            <span class="sr-only">删除</span>
+                                        </a>
+                                        -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text-center">
+    <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+    <uib-pagination class="pagination" total-items="vm.totalItems" ng-model="vm.page"
+                    ng-change="vm.transition()"></uib-pagination>
+</div>
+</div>

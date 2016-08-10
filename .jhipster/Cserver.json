@@ -1,0 +1,60 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "mmetadate",
+      "otherEntityName": "mmetadate",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "cserver"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "computer",
+      "otherEntityName": "computer",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "cpname"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "csname",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "csdescription",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "cstartstatus",
+      "fieldType": "Cstatus",
+      "fieldValues": "AUTOMATIC,MANUAL"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "cport",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "cstatusliveordie",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160516073728",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "javadoc": "数据库服务"
+}

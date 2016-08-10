@@ -1,0 +1,29 @@
+{
+    "monitorApp": {
+        "middleware" : {
+            "home": {
+                "title": "中间件",
+                "createLabel": "新建",
+                "createOrEditLabel": "新建或编辑",
+                "search": "全文检索...."
+            },
+            "created": "新建成功",
+            "updated": "更新成功",
+            "deleted": "删除成功",
+            "delete": {
+                "question": "确定删除?"
+            },
+            "detail": {
+                "title": "中间件"
+            },
+            "midname": "中间件名",
+            "midport": "占用端口",
+            "midpath": "所在路径",
+            "midmoreinfo": "更多信息",
+            "midtype": "类型",
+            "mmetadate": "所建数据源",
+            "application": "应用程序",
+            "computer": "所在服务器"
+        }
+    }
+}

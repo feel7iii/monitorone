@@ -1,0 +1,96 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "middleware",
+      "otherEntityName": "middleware",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "computer"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "cserver",
+      "otherEntityName": "cserver",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "computer"
+    },
+    {
+      "relationshipId": 3,
+      "relationshipName": "application",
+      "otherEntityName": "application",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "computer"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "cpname",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "cpmoreinfo",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "cposx",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "cpedition",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "cploginname",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 6,
+      "fieldName": "cploginpassword",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 7,
+      "fieldName": "cpip",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 8,
+      "fieldName": "cplocation",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 9,
+      "fieldName": "cpnetwordarea",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 10,
+      "fieldName": "cpstatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 11,
+      "fieldName": "cppowersupply",
+      "fieldType": "Powersupply",
+      "fieldValues": "DOUBLE,SINGLE,NONEP"
+    },
+    {
+      "fieldId": 12,
+      "fieldName": "cpsecretornot",
+      "fieldType": "Secretornot",
+      "fieldValues": "SECRET,NOTSECRET"
+    }
+  ],
+  "changelogDate": "20160516073725",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no"
+}

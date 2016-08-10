@@ -1,0 +1,88 @@
+<div ng-cloak>
+    <div class="row">
+        <div class="col-md-12">
+            <div ng-switch="vm.isAuthenticated()">
+                <div class="alert alert-success" ng-switch-when="true" translate-values="{username: '{{vm.account.login}}'}">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            欢迎进入服务器监控系统!
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="row row-sm text-center">
+                                <div class="col-xs-12 m-b-md">
+                                    <div class="r bg-light dker item hbox no-border">
+                                        <div class="col dk padder-v r-r">
+                                            <a class="text-muted text-xs" ui-sref="computer">
+                                                服务器数量-><span class="badge bg-light">{{vm.cpNum}}</span>
+                                            </a>
+                                        </div>
+                                        <div class="col w-xs v-middle hidden-md">
+                                            <div class="">
+                                                <a class="btn btn-info" ui-sref="computer" title="详情">
+                                                    <i class="fa fa-eye-slash"></i>
+                                                    <span class="sr-only">查看</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row row-sm text-center">
+                                <div class="col-xs-12 m-b-md">
+                                    <div class="r bg-light dker item hbox no-border">
+                                        <div class="col dk padder-v r-r">
+                                            <a class="text-muted text-xs" ui-sref="middleware">
+                                                中间件数量-><span class="badge bg-light">{{vm.middNum}}</span>
+                                            </a>
+                                        </div>
+                                        <div class="col w-xs v-middle hidden-md">
+                                            <div class="">
+                                                <a class="btn btn-info" ui-sref="middleware" title="详情">
+                                                    <i class="fa fa-eye-slash"></i>
+                                                    <span class="sr-only">查看</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row row-sm text-center">
+                                <div class="col-xs-12 m-b-md">
+                                    <div class="r bg-light dker item hbox no-border">
+                                        <div class="col dk padder-v r-r">
+                                            <a class="text-muted text-xs" ui-sref="application">
+                                                应用程序数量-><span class="badge bg-light">{{vm.appNum}}</span>
+                                            </a>
+                                        </div>
+                                        <div class="col w-xs v-middle hidden-md">
+                                            <div class="">
+                                                <a class="btn btn-info" ui-sref="application"
+                                                   title="详情">
+                                                    <i class="fa fa-eye-slash"></i>
+                                                    <span class="sr-only">查看</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning" ng-switch-when="false" translate="global.messages.info.authenticated"
+                     translate-compile>
+                    If you want to <a class="alert-link" href="" ng-click="vm.login()">sign in</a>, you can try the
+                    default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user"
+                    and password="user").
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

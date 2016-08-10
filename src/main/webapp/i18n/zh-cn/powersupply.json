@@ -1,0 +1,10 @@
+{
+    "monitorApp": {
+        "Powersupply" : {
+            "null": "",
+            "DOUBLE": "双电源",
+            "SINGLE": "单电源",
+            "NONEP": "未供电"
+        }
+    }
+}

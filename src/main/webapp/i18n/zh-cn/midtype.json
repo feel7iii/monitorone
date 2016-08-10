@@ -1,0 +1,12 @@
+{
+    "monitorApp": {
+        "Midtype" : {
+            "null": "",
+            "TOMCAT": "TOMCAT",
+            "WEBLOGIC": "WEBLOGIC",
+            "WEBSPHERE": "WEBSPHERE",
+            "TONGSERVER": "TONGSERVER",
+            "APUSIC": "APUSIC"
+        }
+    }
+}

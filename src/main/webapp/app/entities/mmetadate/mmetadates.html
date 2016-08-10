@@ -1,0 +1,87 @@
+<div>
+    <jhi-alert></jhi-alert>
+    <div class="wrapper-md">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                数据源
+            </div>
+            <div class="row wrapper">
+                <div class="col-sm-5">
+                    <button class="btn btn-info" ui-sref="mmetadate.new" >
+                        <span class="hidden-xs"  translate="monitorApp.mmetadate.home.createLabel">
+
+                        </span>
+                    </button>
+                </div>
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-3">
+                    <form name="searchForm" class="form-inline">
+                        <div class="input-group pull-right" >
+                            <input type="text" class="form-control gold" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'monitorApp.mmetadate.home.search' | translate }}">
+                            <span  class="input-group-btn width-min" >
+                                <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                            <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                                <button class="btn btn-info" ng-click="vm.clear()">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped b-t b-light">
+                    <thead>
+                    <tr>
+                        <th><span translate="monitorApp.mmetadate.mcname">Mcname</span></th>
+                        <th><span translate="monitorApp.mmetadate.mcdescription">Mcdescription</span></th>
+                        <th><span translate="monitorApp.mmetadate.mcsidordatabasename">Mcsidordatabasename</span></th>
+                        <th><span translate="monitorApp.mmetadate.msconnurl">Msconnurl</span></th>
+                        <th><span translate="monitorApp.mmetadate.mcsqltype">Mcsqltype</span></th>
+                        <th><span translate="monitorApp.mmetadate.cserver">Cserver</span></th>
+                        <th><span translate="monitorApp.mmetadate.middleware">Middleware</span></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="mmetadate in vm.mmetadates track by mmetadate.id">
+                        <td>{{mmetadate.mcname}}</td>
+                        <td>{{mmetadate.mcdescription}}</td>
+                        <td>{{mmetadate.mcsidordatabasename}}</td>
+                        <td>{{mmetadate.msconnurl}}</td>
+                        <td translate="{{'monitorApp.Msqlctype.' + mmetadate.mcsqltype}}">{{mmetadate.mcsqltype}}</td>
+                        <td>
+                            <a ui-sref="cserver-detail({id:mmetadate.cserver.id})">{{mmetadate.cserver.csname}}</a>
+                        </td>
+                        <td>
+                            <a ui-sref="middleware-detail({id:mmetadate.middleware.id})">{{mmetadate.middleware.midname}}</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-info" ui-sref="mmetadate-detail({id:mmetadate.id})" title="详情">
+                                <i class="fa fa-eye-slash"></i>
+                                <span class="sr-only">查看</span>
+                            </a>
+                            <a class="btn btn-success" ui-sref="mmetadate.edit({id:mmetadate.id})" title="编辑">
+                                <i class="fa fa-pencil"></i>
+                                <span class="sr-only">编辑</span>
+                            </a>
+                            <a class="btn btn-danger" ui-sref="mmetadate.delete({id:mmetadate.id})" title="删除">
+                                <i class="fa fa-eraser"></i>
+                                <span class="sr-only">删除</span>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

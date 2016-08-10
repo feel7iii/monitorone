@@ -1,0 +1,35 @@
+{
+    "monitorApp": {
+        "application" : {
+            "home": {
+                "cpsearch": "服务器查询....",
+                "title": "应用",
+                "createLabel": "新建",
+                "createOrEditLabel": "新建或编辑",
+                "search": "全文检索...."
+            },
+            "created": "新建成功",
+            "updated": "更新成功",
+            "deleted": "删除成功",
+            "delete": {
+                "question": "确定删除?"
+            },
+            "detail": {
+                "title": "应用程序"
+            },
+            "appname": "应用名称",
+            "appdescription": "描述",
+            "appaccess": "访问地址",
+            "appusingport": "占用端口",
+            "appvolumepath": "所在路径",
+            "appconnpath": "数据库链接",
+            "appsysadmin": "登录名",
+            "appsyspass": "密码",
+            "appstatus": "状态",
+            "appconnway": "链接方式",
+            "mmetadate": "数据源",
+            "computer": "所在服务器",
+            "middleware": "所在中间件"
+        }
+    }
+}

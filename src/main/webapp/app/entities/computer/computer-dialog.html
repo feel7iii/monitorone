@@ -1,0 +1,109 @@
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myComputerLabel" translate="monitorApp.computer.home.createOrEditLabel">Create or
+            edit a Computer</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.computer.cpname" for="field_cpname">Cpname</label>
+            <input type="text" class="form-control" name="cpname" id="field_cpname"
+                   ng-model="vm.computer.cpname"
+                   required/>
+            <div ng-show="editForm.cpname.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.cpname.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.computer.cpmoreinfo"
+                   for="field_cpmoreinfo">Cpmoreinfo</label>
+            <input type="text" class="form-control" name="cpmoreinfo" id="field_cpmoreinfo"
+                   ng-model="vm.computer.cpmoreinfo"
+            />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.computer.cposx" for="field_cposx">Cposx</label>
+            <input type="text" class="form-control" name="cposx" id="field_cposx"
+                   ng-model="vm.computer.cposx"
+            />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.computer.cpedition"
+                   for="field_cpedition">Cpedition</label>
+            <input type="text" class="form-control" name="cpedition" id="field_cpedition"
+                   ng-model="vm.computer.cpedition"
+            />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.computer.cploginname"
+                   for="field_cploginname">Cploginname</label>
+            <input type="text" class="form-control" name="cploginname" id="field_cploginname"
+                   ng-model="vm.computer.cploginname"
+            />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.computer.cploginpassword" for="field_cploginpassword">Cploginpassword</label>
+            <input type="text" class="form-control" name="cploginpassword" id="field_cploginpassword"
+                   ng-model="vm.computer.cploginpassword"
+            />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.computer.cpip" for="field_cpip">Cpip</label>
+            <input type="text" class="form-control" name="cpip" id="field_cpip"
+                   ng-model="vm.computer.cpip"
+            />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.computer.cplocation"
+                   for="field_cplocation">Cplocation</label>
+            <input type="text" class="form-control" name="cplocation" id="field_cplocation"
+                   ng-model="vm.computer.cplocation"
+            />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.computer.cpnetwordarea" for="field_cpnetwordarea">Cpnetwordarea</label>
+            <input type="text" class="form-control" name="cpnetwordarea" id="field_cpnetwordarea"
+                   ng-model="vm.computer.cpnetwordarea"
+            />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.computer.cpstatus" for="field_cpstatus">Cpstatus</label>
+            <input type="text" class="form-control" name="cpstatus" id="field_cpstatus"
+                   ng-model="vm.computer.cpstatus"
+            />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.computer.cppowersupply" for="field_cppowersupply">Cppowersupply</label>
+            <select class="form-control" name="cppowersupply" ng-model="vm.computer.cppowersupply"
+                    id="field_cppowersupply">
+                <option value="DOUBLE" translate="monitorApp.Powersupply.DOUBLE">DOUBLE</option>
+                <option value="SINGLE" translate="monitorApp.Powersupply.SINGLE">SINGLE</option>
+                <option value="NONEP" translate="monitorApp.Powersupply.NONEP">NONEP</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="monitorApp.computer.cpsecretornot" for="field_cpsecretornot">Cpsecretornot</label>
+            <select class="form-control" name="cpsecretornot" ng-model="vm.computer.cpsecretornot"
+                    id="field_cpsecretornot">
+                <option value="SECRET" translate="monitorApp.Secretornot.SECRET">SECRET</option>
+                <option value="NOTSECRET" translate="monitorApp.Secretornot.NOTSECRET">NOTSECRET</option>
+            </select>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
+            translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-info">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,14 @@
+{
+    "monitorApp": {
+        "Msqlctype" : {
+            "null": "",
+            "MYSQL": "MYSQL",
+            "ORACLE": "ORACLE",
+            "MSSERVER": "MSSERVER",
+            "DB2": "DB2",
+            "POTSGRESQL": "POTSGRESQL",
+            "H2": "H2",
+            "MONGODB": "MONGODB"
+        }
+    }
+}

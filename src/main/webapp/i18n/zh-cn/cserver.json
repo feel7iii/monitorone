@@ -1,0 +1,28 @@
+{
+    "monitorApp": {
+        "cserver" : {
+            "home": {
+                "title": "数据库服务",
+                "createLabel": "新建",
+                "createOrEditLabel": "新建或编辑",
+                "search": "全文检索...."
+            },
+            "created": "新建成功",
+            "updated": "更新成功",
+            "deleted": "删除成功",
+            "delete": {
+                "question": "确定删除?"
+            },
+            "detail": {
+                "title": "数据库服务"
+            },
+            "csname": "服务名称",
+            "csdescription": "描述",
+            "cstartstatus": "启动状态",
+            "cport": "占用端口",
+            "cstatusliveordie": "服务状态",
+            "mmetadate": "数据源",
+            "computer": "所属服务器"
+        }
+    }
+}

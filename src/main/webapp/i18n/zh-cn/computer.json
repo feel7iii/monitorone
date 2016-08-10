@@ -1,0 +1,36 @@
+{
+    "monitorApp": {
+        "computer" : {
+            "home": {
+                "title": "服务器",
+                "createLabel": "新建",
+                "createOrEditLabel": "新建或编辑",
+                "search": "全文检索...."
+            },
+            "created": "新建成功",
+            "updated": "更新成功",
+            "deleted": "删除成功",
+            "delete": {
+                "question": "确定删除?"
+            },
+            "detail": {
+                "title": "服务器"
+            },
+            "cpname": "服务器名",
+            "cpmoreinfo": "更多信息",
+            "cposx": "操作系统",
+            "cpedition": "版本号",
+            "cploginname": "登录名",
+            "cploginpassword": "密码",
+            "cpip": "IP",
+            "cplocation": "所在位置",
+            "cpnetwordarea": "网段",
+            "cpstatus": "状态",
+            "cppowersupply": "供电情况",
+            "cpsecretornot": "是否涉密",
+            "middleware": "中间件",
+            "cserver": "数据库服务",
+            "application": "应用程序"
+        }
+    }
+}

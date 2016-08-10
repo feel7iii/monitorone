@@ -1,0 +1,9 @@
+{
+    "monitorApp": {
+        "Connway" : {
+            "null": "",
+            "MMETADATE": "中间件提供数据源",
+            "SELFMETADATE": "自建数据源"
+        }
+    }
+}

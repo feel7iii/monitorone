@@ -1,0 +1,15 @@
+entity Party{
+	id Long,
+	parentId String,
+    path String,
+    name String,
+    uniqueName String,
+    description String,
+    position String,
+    type Integer,
+    status Integer,
+    securityLevel String,
+    createTime ZonedDateTime,
+    modifyTime ZonedDateTime,
+    managerBy String
+}

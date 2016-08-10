@@ -1,0 +1,122 @@
+<div class="uibModal">
+    <form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                    ng-click="vm.clear()">&times;</button>
+            <h4 class="modal-title" id="myApplicationLabel" translate="monitorApp.application.home.createOrEditLabel">
+                Create
+                or edit a Application</h4>
+        </div>
+        <div class="modal-body">
+            <jhi-alert-error></jhi-alert-error>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.application.appname"
+                       for="field_appname">Appname</label>
+                <input type="text" class="form-control" name="appname" id="field_appname"
+                       ng-model="vm.application.appname"
+                       required/>
+                <div ng-show="editForm.appname.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.appname.$error.required" translate="entity.validation.required">
+                        This field is required.
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.application.appdescription"
+                       for="field_appdescription">Appdescription</label>
+                <input type="text" class="form-control" name="appdescription" id="field_appdescription"
+                       ng-model="vm.application.appdescription"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.application.appaccess"
+                       for="field_appaccess">Appaccess</label>
+                <input type="text" class="form-control" name="appaccess" id="field_appaccess"
+                       ng-model="vm.application.appaccess"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.application.appusingport" for="field_appusingport">Appusingport</label>
+                <input type="number" class="form-control" name="appusingport" id="field_appusingport"
+                       ng-model="vm.application.appusingport"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.application.appvolumepath" for="field_appvolumepath">Appvolumepath</label>
+                <input type="text" class="form-control" name="appvolumepath" id="field_appvolumepath"
+                       ng-model="vm.application.appvolumepath"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.application.appconnpath" for="field_appconnpath">Appconnpath</label>
+                <input type="text" class="form-control" name="appconnpath" id="field_appconnpath"
+                       ng-model="vm.application.appconnpath"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.application.appsysadmin" for="field_appsysadmin">Appsysadmin</label>
+                <input type="text" class="form-control" name="appsysadmin" id="field_appsysadmin"
+                       ng-model="vm.application.appsysadmin"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.application.appsyspass"
+                       for="field_appsyspass">Appsyspass</label>
+                <input type="text" class="form-control" name="appsyspass" id="field_appsyspass"
+                       ng-model="vm.application.appsyspass"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.application.appstatus"
+                       for="field_appstatus">Appstatus</label>
+                <input type="text" class="form-control" name="appstatus" id="field_appstatus"
+                       ng-model="vm.application.appstatus"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.application.appconnway"
+                       for="field_appconnway">Appconnway</label>
+                <select class="form-control" name="appconnway" ng-model="vm.application.appconnway"
+                        id="field_appconnway">
+                    <option value="MMETADATE" translate="monitorApp.Connway.MMETADATE">MMETADATE</option>
+                    <option value="SELFMETADATE" translate="monitorApp.Connway.SELFMETADATE">SELFMETADATE</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label translate="monitorApp.application.mmetadate" for="field_mmetadate">Mmetadate</label>
+                <select class="form-control" id="field_mmetadate" multiple name="mmetadate"
+                        ng-model="vm.application.mmetadates"
+                        ng-options="mmetadate as mmetadate.mcname for mmetadate in vm.mmetadates track by mmetadate.id"></select>
+            </div>
+            <div class="form-group">
+                <label translate="monitorApp.application.computer" for="field_computer">Computer</label>
+                <input type="hidden" class="form-control" name="computer" id="field_computer"
+                       ng-model="vm.application.computer" ng-disabled="true"
+                />
+                <input type="text" class="form-control" name="computer_" id="field_computer_"
+                       ng-model="vm.application.computer.cpname" ng-disabled="true"
+                />
+            </div>
+            <div class="form-group">
+                <label translate="monitorApp.application.middleware" for="field_middleware">Middleware</label>
+                <select class="form-control" id="field_middleware" name="middleware"
+                        ng-model="vm.application.middleware"
+                        ng-options="middleware as middleware.midname for middleware in vm.middlewares track by middleware.id">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+                <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
+                translate="entity.action.cancel">Cancel</span>
+            </button>
+            <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-info">
+                <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+            </button>
+        </div>
+    </form>
+</div>

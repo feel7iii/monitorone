@@ -1,0 +1,89 @@
+<div class="uibModal">
+    <form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                    ng-click="vm.clear()">&times;</button>
+            <h4 class="modal-title" id="myMiddlewareLabel" translate="monitorApp.middleware.home.createOrEditLabel">
+                Create or edit a Middleware</h4>
+        </div>
+        <div class="modal-body">
+            <jhi-alert-error></jhi-alert-error>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.middleware.midname"
+                       for="field_midname">Midname</label>
+                <input type="text" class="form-control" name="midname" id="field_midname"
+                       ng-model="vm.middleware.midname"
+                       required/>
+                <div ng-show="editForm.midname.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.midname.$error.required" translate="entity.validation.required">
+                        This field is required.
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.middleware.midport"
+                       for="field_midport">Midport</label>
+                <input type="text" class="form-control" name="midport" id="field_midport"
+                       ng-model="vm.middleware.midport"
+                       required/>
+                <div ng-show="editForm.midport.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.midport.$error.required" translate="entity.validation.required">
+                        This field is required.
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.middleware.midpath"
+                       for="field_midpath">Midpath</label>
+                <input type="text" class="form-control" name="midpath" id="field_midpath"
+                       ng-model="vm.middleware.midpath"
+                       required/>
+                <div ng-show="editForm.midpath.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.midpath.$error.required" translate="entity.validation.required">
+                        This field is required.
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.middleware.midmoreinfo" for="field_midmoreinfo">Midmoreinfo</label>
+                <input type="text" class="form-control" name="midmoreinfo" id="field_midmoreinfo"
+                       ng-model="vm.middleware.midmoreinfo"
+                />
+            </div>
+            <div class="form-group">
+                <label class="control-label" translate="monitorApp.middleware.midtype"
+                       for="field_midtype">Midtype</label>
+                <select class="form-control" name="midtype" ng-model="vm.middleware.midtype" id="field_midtype">
+                    <option value="TOMCAT" translate="monitorApp.Midtype.TOMCAT">TOMCAT</option>
+                    <option value="WEBLOGIC" translate="monitorApp.Midtype.WEBLOGIC">WEBLOGIC</option>
+                    <option value="WEBSPHERE" translate="monitorApp.Midtype.WEBSPHERE">WEBSPHERE</option>
+                    <option value="TONGSERVER" translate="monitorApp.Midtype.TONGSERVER">TONGSERVER</option>
+                    <option value="APUSIC" translate="monitorApp.Midtype.APUSIC">APUSIC</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label translate="monitorApp.middleware.computer" for="field_computer">....</label>
+                <input type="hidden" class="form-control" name="computer" id="field_computer"
+                       ng-model="vm.middleware.computer" ng-disabled="true"
+                />
+                <input type="text" class="form-control" name="computer_" id="field_computer_"
+                       ng-model="vm.middleware.computer.cpname" ng-disabled="true"
+                />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+                <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
+                translate="entity.action.cancel">Cancel</span>
+            </button>
+            <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-info">
+                <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+            </button>
+        </div>
+    </form>
+</div>

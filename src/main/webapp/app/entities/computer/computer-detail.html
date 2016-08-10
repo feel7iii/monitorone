@@ -1,0 +1,97 @@
+<div>
+    <jhi-alert-error></jhi-alert-error>
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <span translate="monitorApp.computer.detail.title">....</span>
+                </div>
+                <table class="table table-striped m-b-none">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.computer.cpname">....</span>
+                        </td>
+                        <td><span>{{vm.computer.cpname}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.computer.cpmoreinfo">....</span>
+                        </td>
+                        <td><span>{{vm.computer.cpmoreinfo}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.computer.cposx">....</span>
+                        </td>
+                        <td><span>{{vm.computer.cposx}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.computer.cpedition">....</span>
+                        </td>
+                        <td><span>{{vm.computer.cpedition}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.computer.cploginname">....</span>
+                        </td>
+                        <td><span>{{vm.computer.cploginname}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.computer.cploginpassword">....</span>
+                        </td>
+                        <td><span>{{vm.computer.cploginpassword}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.computer.cpip">....</span>
+                        </td>
+                        <td><span>{{vm.computer.cpip}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.computer.cplocation">....</span>
+                        </td>
+                        <td><span>{{vm.computer.cplocation}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.computer.cpnetwordarea">....</span>
+                        </td>
+                        <td><span>{{vm.computer.cpnetwordarea}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.computer.cpstatus">....</span>
+                        </td>
+                        <td><span>{{vm.computer.cpstatus}}</span></td>
+                    </tr>
+                    <tr>
+                        <td translate="monitorApp.computer.cppowersupply"></td>
+                        <td>
+                            <span translate="{{'monitorApp.Powersupply.' + vm.computer.cppowersupply}}">{{vm.computer.cppowersupply}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td translate="monitorApp.computer.cpsecretornot"></td>
+                        <td>
+                            <span translate="{{'monitorApp.Secretornot.' + vm.computer.cpsecretornot}}">{{vm.computer.cpsecretornot}}</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-offset-10">
+            <button type="submit"
+                    onclick="window.history.back()"
+                    class="btn btn-info">
+                <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back">....</span>
+            </button>
+        </div>
+    </div>
+</div>

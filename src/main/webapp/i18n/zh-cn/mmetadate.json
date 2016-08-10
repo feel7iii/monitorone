@@ -1,0 +1,32 @@
+{
+    "monitorApp": {
+        "mmetadate" : {
+            "home": {
+                "title": "数据源",
+                "createLabel": "新建",
+                "createOrEditLabel": "新建或编辑",
+                "search": "全文检索...."
+            },
+            "created": "新建成功",
+            "updated": "更新成功",
+            "deleted": "删除成功",
+            "delete": {
+                "question": "确定删除?"
+            },
+            "detail": {
+                "title": "数据源"
+            },
+            "mcname": "数据源名",
+            "mcdescription": "描述",
+            "mcsidordatabasename": "实例或数据库",
+            "mcusername": "链接名",
+            "mcpassword": "密码",
+            "mcport": "所用端口",
+            "msconnurl": "链接URL",
+            "mcsqltype": "类型",
+            "cserver": "链接服务",
+            "application": "应用程序",
+            "middleware": "中间件"
+        }
+    }
+}

@@ -1,0 +1,85 @@
+<div>
+    <jhi-alert-error></jhi-alert-error>
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <span translate="monitorApp.mmetadate.detail.title">....</span>
+                </div>
+                <table class="table table-striped m-b-none">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.mmetadate.mcname">....</span>
+                        </td>
+                        <td><span>{{vm.mmetadate.mcname}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.mmetadate.mcdescription">....</span>
+                        </td>
+                        <td><span>{{vm.mmetadate.mcdescription}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.mmetadate.mcsidordatabasename">....</span>
+                        </td>
+                        <td><span>{{vm.mmetadate.mcsidordatabasename}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.mmetadate.mcusername">....</span>
+                        </td>
+                        <td><span>{{vm.mmetadate.mcusername}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.mmetadate.mcpassword">....</span>
+                        </td>
+                        <td><span>{{vm.mmetadate.mcpassword}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.mmetadate.mcport">....</span>
+                        </td>
+                        <td><span>{{vm.mmetadate.mcport}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.mmetadate.msconnurl">....</span>
+                        </td>
+                        <td><span>{{vm.mmetadate.msconnurl}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span translate="monitorApp.mmetadate.mcsqltype">....</span>
+                        </td>
+                        <td><span translate="{{'monitorApp.Msqlctype.' + vm.mmetadate.mcsqltype}}">{{vm.mmetadate.mcsqltype}}</span></td>
+                    </tr>
+                    <tr>
+                        <td translate="monitorApp.mmetadate.cserver"></td>
+                        <td>
+                            <span><a class="gold" ui-sref="cserver-detail({id:vm.mmetadate.cserver.id})">{{vm.mmetadate.cserver.csname}}</a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td translate="monitorApp.mmetadate.middleware"></td>
+                        <td>
+                            <span><a class="gold" ui-sref="middleware-detail({id:vm.mmetadate.middleware.id})">{{vm.mmetadate.middleware.midname}}</a></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-offset-10">
+            <button type="submit"
+                    onclick="window.history.back()"
+                    class="btn btn-info">
+                <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+{
+    "monitorApp": {
+        "Cstatus" : {
+            "null": "",
+            "AUTOMATIC": "自启动",
+            "MANUAL": "手动启动"
+        }
+    }
+}

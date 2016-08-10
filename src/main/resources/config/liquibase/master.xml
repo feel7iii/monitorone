@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160516073725_added_entity_Computer.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160516073726_added_entity_Middleware.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160516073727_added_entity_Application.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160516073728_added_entity_Cserver.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160516073729_added_entity_Mmetadate.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160810045000_added_entity_Party.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="classpath:config/liquibase/changelog/20160516073726_added_entity_constraints_Middleware.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160516073727_added_entity_constraints_Application.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160516073728_added_entity_constraints_Cserver.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160516073729_added_entity_constraints_Mmetadate.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

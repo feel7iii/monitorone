@@ -1,0 +1,118 @@
+entity Computer {
+	id Long,
+	cpname String required, //计算机名称
+    cpmoreinfo String, //计算机更多信息
+    cposx String, //计算机操作系统
+    cpedition String, //计算操作系统机版本
+    cploginname String, //计算机管理员名称
+    cploginpassword String, //计算机管理员密码
+    cpip String , //服务器ip地址
+    cplocation String, //服务器所处位置：5排 2号机柜 34-40孔
+    cpnetwordarea String, //备用，网络划分区域
+    cpstatus String, //服务器状态
+    cppowersupply Powersupply,
+    cpsecretornot Secretornot,
+}
+
+/**双电|单电|未通电*/
+enum Powersupply {
+	DOUBLE, SINGLE, NONEP
+}
+
+/**涉密|非涉密*/
+enum Secretornot {
+	SECRET, NOTSECRET
+}
+
+entity Middleware {
+	id Long,
+    midname String required, //中间件名
+    midport String required, //中间件占用端口8080|8081，以‘|’隔开
+    midpath String required, //中间件所在服务器路径
+    midmoreinfo String, //中间件更多信息
+    midtype Midtype
+}
+
+enum Midtype {
+	TOMCAT, WEBLOGIC, WEBSPHERE, TONGSERVER, APUSIC
+}
+
+entity Application {
+	id Long,
+    appname String required, //J2EE应用名称
+    appdescription String,
+    appaccess String, //应用访问地址
+    appusingport Integer, //所占用端口
+    appvolumepath String, //应用过所在服务器硬盘路径
+    appconnpath String, //应用链接数据库URL
+    appsysadmin String, //应用sys用户名
+    appsyspass String, //应用sys密码
+    appstatus String, //应用状态
+    appconnway Connway, //链接数据库方式[1.中间件元数据|2.自建元数据]
+}
+
+enum Connway {
+	MMETADATE, SELFMETADATE
+}
+
+/**数据库服务*/
+entity Cserver {
+	id Long,
+    csname String required, //服务名称，例如[数据库：1.OracleServiceORCL/Mysql|应用2.JAVA_TOMCAT_SERVER]
+    csdescription String required, //服务器服务的描述
+    cstartstatus Cstatus, //默认服务启动的状态，1.自动|2.手动|
+	cport Integer required, //服务的端口[数据库1.1521,1522/3306,3307|应用2.8080，8082]
+	cstatusliveordie String, //服务状态
+}
+
+ /**自动和手动管理方式*/
+enum Cstatus {
+    AUTOMATIC, MANUAL
+}
+
+entity Mmetadate {
+	id Long,
+    mcname String, //元数据名称例如：cmsdatasource
+    mcdescription String,
+    mcsidordatabasename String, //元数据指向的数据库实例名[oracms]或者数据库名[Mysql(cms86)]
+    mcusername String, //链接数据库名称
+    mcpassword String, //链接数据库密码
+    mcport String, //元数据指向的服务器端口
+    msconnurl String, //链接数据库的URL或者配置方式
+    mcsqltype Msqlctype, //数据库类型
+}
+
+enum Msqlctype {
+	MYSQL, ORACLE, MSSERVER, DB2, POTSGRESQL, H2, MONGODB
+}
+
+relationship OneToMany {
+	Computer{middleware} to Middleware{computer(cpname)}
+}
+
+relationship OneToMany {
+	Computer{cserver} to Cserver{computer(cpname)}
+}
+
+relationship OneToMany {
+	Computer{application} to Application{computer(cpname)}
+}
+
+/** 服务Cserver对中间件数据元应为一个服务可以提供多个数据元服务 */
+relationship OneToMany {
+	Cserver{mmetadate} to Mmetadate{cserver(csname)}
+}
+
+relationship ManyToMany {
+	Application{mmetadate(mcname)} to Mmetadate{application}
+}
+
+relationship OneToMany {
+	Middleware{mmetadate} to Mmetadate{middleware(midname)}
+}
+
+relationship OneToMany {
+	Middleware{application} to Application{middleware(midname)}
+}
+
+paginate Computer, Middleware, Cserver, Mmetadate, Application with pagination
