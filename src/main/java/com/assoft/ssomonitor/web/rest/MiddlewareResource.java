@@ -1,5 +1,9 @@
 package com.assoft.ssomonitor.web.rest;
 
+import com.assoft.ssomonitor.domain.Party;
+import com.assoft.ssomonitor.domain.User;
+import com.assoft.ssomonitor.repository.PartyRepository;
+import com.assoft.ssomonitor.service.UserService;
 import com.codahale.metrics.annotation.Timed;
 import com.assoft.ssomonitor.domain.Middleware;
 import com.assoft.ssomonitor.repository.MiddlewareRepository;
@@ -42,6 +46,12 @@ public class MiddlewareResource {
     @Inject
     private MiddlewareSearchRepository middlewareSearchRepository;
 
+    @Inject
+    private PartyRepository partyRepository;
+
+    @Inject
+    private UserService userService;
+
     /**
      * POST  /middlewares : Create a new middleware.
      *
@@ -60,6 +70,14 @@ public class MiddlewareResource {
         }
         Middleware result = middlewareRepository.save(middleware);
         middlewareSearchRepository.save(result);
+        Party party = new Party();
+        party.setParentId(middleware.getComputer().getId().toString());
+        party.setName(result.getMidname());
+        party.setPath("NOTHING");
+        party.setUniqueName(result.getMidname());
+        party.setPosition(1);
+        party.setManageBy(userService.getUserWithAuthorities().getLogin());
+        partyRepository.save(party);
         return ResponseEntity.created(new URI("/api/middlewares/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("middleware", result.getId().toString()))
             .body(result);

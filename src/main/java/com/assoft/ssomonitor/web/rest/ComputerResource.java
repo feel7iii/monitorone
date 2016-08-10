@@ -1,6 +1,10 @@
 package com.assoft.ssomonitor.web.rest;
 
 import com.assoft.ssomonitor.domain.Application;
+import com.assoft.ssomonitor.domain.Party;
+import com.assoft.ssomonitor.repository.PartyRepository;
+import com.assoft.ssomonitor.security.SecurityUtils;
+import com.assoft.ssomonitor.service.UserService;
 import com.codahale.metrics.annotation.Timed;
 import com.assoft.ssomonitor.domain.Computer;
 import com.assoft.ssomonitor.repository.ComputerRepository;
@@ -15,6 +19,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -43,6 +48,12 @@ public class ComputerResource {
     @Inject
     private ComputerSearchRepository computerSearchRepository;
 
+    @Inject
+    private PartyRepository partyRepository;
+
+    @Inject
+    private UserService userService;
+
     /**
      * POST  /computers : Create a new computer.
      *
@@ -61,6 +72,14 @@ public class ComputerResource {
         }
         Computer result = computerRepository.save(computer);
         computerSearchRepository.save(result);
+        Party party = new Party();
+        party.setParentId("1");
+        party.setName(result.getCpname());
+        party.setPath("NOTHING");
+        party.setUniqueName(result.getCpname());
+        party.setPosition(1);
+        party.setManageBy(userService.getUserWithAuthorities().getLogin());
+        partyRepository.save(party);
         return ResponseEntity.created(new URI("/api/computers/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("computer", result.getId().toString()))
             .body(result);
@@ -170,8 +189,7 @@ public class ComputerResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public Long countApplications()
-        throws URISyntaxException {
+    public Long countApplications() throws URISyntaxException {
         log.debug("查询的服务器数量为-> {}", computerRepository.count());
         return computerRepository.count();
     }
