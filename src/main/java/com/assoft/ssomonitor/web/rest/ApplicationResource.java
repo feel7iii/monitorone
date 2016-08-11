@@ -1,5 +1,8 @@
 package com.assoft.ssomonitor.web.rest;
 
+import com.assoft.ssomonitor.domain.Party;
+import com.assoft.ssomonitor.repository.PartyRepository;
+import com.assoft.ssomonitor.service.UserService;
 import com.codahale.metrics.annotation.Timed;
 import com.assoft.ssomonitor.domain.Application;
 import com.assoft.ssomonitor.repository.ApplicationRepository;
@@ -53,6 +56,12 @@ public class ApplicationResource {
     @Inject
     private ApplicationSearchRepository applicationSearchRepository;
 
+    @Inject
+    private PartyRepository partyRepository;
+
+    @Inject
+    private UserService userService;
+
     /**
      * POST  /applications : Create a new application.
      *
@@ -71,6 +80,15 @@ public class ApplicationResource {
         }
         Application result = applicationRepository.save(application);
         applicationSearchRepository.save(result);
+        Party party = new Party();
+        party.setParentId(partyRepository.getByPartyOne("mid" + application.getMiddleware().getId()).getId().toString());
+        party.setName(result.getAppname());
+        party.setPath("NOTHING");
+        party.setUniqueName(result.getAppname());
+        party.setPosition(1);
+        party.setManageBy(userService.getUserWithAuthorities().getLogin());
+        party.setPartyOne("appp" + result.getId().toString());
+        partyRepository.save(party);
         return ResponseEntity.created(new URI("/api/applications/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("application", result.getId().toString()))
             .body(result);

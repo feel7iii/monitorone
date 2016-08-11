@@ -16,6 +16,9 @@
         vm.register = register;
         $scope.$on('authenticationSuccess', function() {
             getAccount();
+            loadCpNum();
+            loadMidNum();
+            loadAppNum();
         });
 
         getAccount();

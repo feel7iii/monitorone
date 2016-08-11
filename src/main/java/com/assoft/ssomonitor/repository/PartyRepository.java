@@ -12,4 +12,6 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface PartyRepository extends JpaRepository<Party,Long> {
 
+    Party getByPartyOne(String partyOneId);
+
 }

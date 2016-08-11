@@ -71,12 +71,13 @@ public class MiddlewareResource {
         Middleware result = middlewareRepository.save(middleware);
         middlewareSearchRepository.save(result);
         Party party = new Party();
-        party.setParentId(middleware.getComputer().getId().toString());
+        party.setParentId(partyRepository.getByPartyOne("cp" + middleware.getComputer().getId()).getId().toString());
         party.setName(result.getMidname());
         party.setPath("NOTHING");
         party.setUniqueName(result.getMidname());
         party.setPosition(1);
         party.setManageBy(userService.getUserWithAuthorities().getLogin());
+        party.setPartyOne("mid" + result.getId().toString());
         partyRepository.save(party);
         return ResponseEntity.created(new URI("/api/middlewares/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("middleware", result.getId().toString()))

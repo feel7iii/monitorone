@@ -79,6 +79,7 @@ public class ComputerResource {
         party.setUniqueName(result.getCpname());
         party.setPosition(1);
         party.setManageBy(userService.getUserWithAuthorities().getLogin());
+        party.setPartyOne("cp" + result.getId().toString());
         partyRepository.save(party);
         return ResponseEntity.created(new URI("/api/computers/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("computer", result.getId().toString()))
