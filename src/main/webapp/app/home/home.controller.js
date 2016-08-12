@@ -5,9 +5,9 @@
         .module('monitorApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', 'AlertService', 'ComputerCount', 'MiddNum', 'AppCountNum'];
+    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', 'AlertService', 'ComputerCount', 'MiddNum', 'AppCountNum', 'PartySearchAll'];
 
-    function HomeController ($scope, Principal, LoginService, $state, AlertService, ComputerCount, MiddNum, AppCountNum) {
+    function HomeController ($scope, Principal, LoginService, $state, AlertService, ComputerCount, MiddNum, AppCountNum, PartySearchAll) {
         var vm = this;
 
         vm.account = null;
@@ -19,12 +19,27 @@
             loadCpNum();
             loadMidNum();
             loadAppNum();
+            // loadParty();
         });
 
         getAccount();
         loadCpNum();
         loadMidNum();
         loadAppNum();
+        loadParty();
+
+        function loadParty () {
+            PartySearchAll.query({
+
+            }, onSuccess, onError);
+            function onSuccess(data) {
+                console.log(data);
+                vm.orgShow = data;
+            }
+            function onError(error) {
+                AlertService.error(error.data.message);
+            }
+        }
 
         function loadCpNum () {
             ComputerCount.get({

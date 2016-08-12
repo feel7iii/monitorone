@@ -14,4 +14,7 @@ public interface PartyRepository extends JpaRepository<Party,Long> {
 
     Party getByPartyOne(String partyOneId);
 
+    @Query(value = "select p.id, p.parent_id, p.name from Party p", nativeQuery = true)
+    List<Party> getAllParty();
+
 }

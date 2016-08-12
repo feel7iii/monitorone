@@ -35,13 +35,13 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 public class PartyResource {
 
     private final Logger log = LoggerFactory.getLogger(PartyResource.class);
-        
+
     @Inject
     private PartyRepository partyRepository;
-    
+
     @Inject
     private PartySearchRepository partySearchRepository;
-    
+
     /**
      * POST  /parties : Create a new party.
      *
@@ -104,7 +104,7 @@ public class PartyResource {
     public ResponseEntity<List<Party>> getAllParties(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Parties");
-        Page<Party> page = partyRepository.findAll(pageable); 
+        Page<Party> page = partyRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/parties");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
@@ -165,5 +165,14 @@ public class PartyResource {
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/_searchAll/parties",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Party>> searchAllParties() throws URISyntaxException {
+        List<Party> partyList = partyRepository.getAllParty();
+        log.error(partyList.toString());
+        return new ResponseEntity<>(partyList, HttpStatus.OK);
+    }
 
 }

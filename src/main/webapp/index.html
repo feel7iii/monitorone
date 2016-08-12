@@ -27,26 +27,12 @@
     <![endif]-->
     <!-- <page-ribbon></page-ribbon> -->
     <div ui-view="navbar" ng-cloak></div>
-    <div class="container">
-        <div class="well" ui-view="content">
-            <!-- Angular views -->
-        </div>
-
-        <div class="footer" ng-cloak>
-        <p translate="footer">This is your footer</p>
-        </div>
+    <div class="well" ui-view="content">
+        <!-- Angular views -->
     </div>
-
-    <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
-    <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>-->
-
+    <div class="footer" ng-cloak>
+        <p translate="footer"></p>
+    </div>
     <!-- build:js app/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -105,6 +91,7 @@
     <script src="app/entities/mmetadate/mmetadate.service.js"></script>
     <script src="app/entities/mmetadate/mmetadate.search.service.js"></script>
     <script src="app/entities/mmetadate/mmetadate.controller.js"></script>
+    <script src="app/entities/party/party.search.all.service.js"></script>
     <script src="app/entities/party/party.controller.js"></script>
     <script src="app/entities/party/party.state.js"></script>
     <script src="app/entities/party/party.search.service.js"></script>

@@ -125,5 +125,5 @@
         "emailexists": "该邮箱已被使用!",
         "idexists": "新建的 {{entityName}} 的ID已经存在"
     },
-    "footer": "ASSOFT_©2000-2016"
+    "footer": "&nbsp;&nbsp;&nbsp;&nbsp;ASSOFT_©2000-2016"
 }
