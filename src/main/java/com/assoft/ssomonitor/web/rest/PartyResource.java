@@ -176,7 +176,6 @@ public class PartyResource {
     @Timed
     public ResponseEntity<List<PartyDTO>> searchAllParties() throws URISyntaxException {
         List<Party> partyList = partyRepository.findAll();
-        log.error(partyList.toString());
         return new ResponseEntity<>(partyMapper.coosToCooDTOs(partyList), HttpStatus.OK);
     }
 

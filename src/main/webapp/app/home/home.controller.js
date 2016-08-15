@@ -48,10 +48,7 @@
                 // the template we defined earlier
                 myDiagram.nodeTemplate =
                     $(go.Node, "Horizontal",
-                        {background: "#44CCFF"},
-                        $(go.Picture,
-                            {margin: 7, width: 20, height: 20, background: "#00EEEE"},
-                            new go.Binding("source")),
+                        {background: "#23B7E5"},
                         $(go.TextBlock, "Default Text",
                             {margin: 7, stroke: "white", font: "bold 16px sans-serif"},
                             new go.Binding("text", "name"))
@@ -61,7 +58,7 @@
                 myDiagram.linkTemplate =
                     $(go.Link,
                         {routing: go.Link.Orthogonal, corner: 5},
-                        $(go.Shape, {strokeWidth: 3, stroke: "#00EEEE"})); // the link shape
+                        $(go.Shape, {strokeWidth: 3, stroke: "#23B7E5"})); // the link shape
 
                 var model = $(go.TreeModel);
                 model.nodeDataArray = data;
