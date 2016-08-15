@@ -1,5 +1,7 @@
 package com.assoft.ssomonitor.web.rest;
 
+import com.assoft.ssomonitor.web.rest.dto.PartyDTO;
+import com.assoft.ssomonitor.web.rest.mapper.PartyMapper;
 import com.codahale.metrics.annotation.Timed;
 import com.assoft.ssomonitor.domain.Party;
 import com.assoft.ssomonitor.repository.PartyRepository;
@@ -41,6 +43,9 @@ public class PartyResource {
 
     @Inject
     private PartySearchRepository partySearchRepository;
+
+    @Inject
+    private PartyMapper partyMapper;
 
     /**
      * POST  /parties : Create a new party.
@@ -169,10 +174,10 @@ public class PartyResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<List<Party>> searchAllParties() throws URISyntaxException {
-        List<Party> partyList = partyRepository.getAllParty();
+    public ResponseEntity<List<PartyDTO>> searchAllParties() throws URISyntaxException {
+        List<Party> partyList = partyRepository.findAll();
         log.error(partyList.toString());
-        return new ResponseEntity<>(partyList, HttpStatus.OK);
+        return new ResponseEntity<>(partyMapper.coosToCooDTOs(partyList), HttpStatus.OK);
     }
 
 }

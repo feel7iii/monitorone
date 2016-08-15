@@ -5,18 +5,18 @@ package com.assoft.ssomonitor.web.rest.dto;
  */
 public class PartyDTO {
 
-    private String key;
+    private Long id;
 
     private String parentId;
 
     private String name;
 
-    public String getKey() {
-        return key;
+    public Long getId() {
+        return id;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getParentId() {
@@ -38,7 +38,7 @@ public class PartyDTO {
     @Override
     public String toString() {
         return "PartyDTO{" +
-            "key='" + key + '\'' +
+            "id=" + id +
             ", parentId='" + parentId + '\'' +
             ", name='" + name + '\'' +
             '}';

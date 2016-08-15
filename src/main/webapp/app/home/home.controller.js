@@ -19,7 +19,7 @@
             loadCpNum();
             loadMidNum();
             loadAppNum();
-            // loadParty();
+            loadParty();
         });
 
         getAccount();
@@ -33,8 +33,9 @@
 
             }, onSuccess, onError);
             function onSuccess(data) {
+                var ss = JSON3.stringify(data);
+                ss.replaceAll("id", "key");
                 console.log(data);
-                vm.orgShow = data;
             }
             function onError(error) {
                 AlertService.error(error.data.message);
